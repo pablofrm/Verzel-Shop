@@ -58,7 +58,7 @@ Foco no processamento de informações (formatação, limites, casas decimais).
 **CT-DAT-01: Sensibilidade e sanitização do código do cupom (CA02)**
 * **Ação:** Inserir o cupom com espaços e variações de caixa (ex: "  bEmViNdO10  ").
 * **Resultado Esperado:** Aplicação de 10% de desconto (como "BEMVINDO10"), higienizando espaços e ignorando case.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-DAT-01.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -66,7 +66,7 @@ Foco no processamento de informações (formatação, limites, casas decimais).
 **CT-DAT-02: Entrada de dados inválidos (CA03)**
 * **Ação:** Digitar um cupom inexistente (ex: CUPOMFALSO99).
 * **Resultado Esperado:** Exibir apenas "Cupom inválido." sem alterar os valores do carrinho.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-DAT-02.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -85,7 +85,7 @@ Foco no ambiente de execução.
 **CT-PLA-01: Exibição responsiva das mensagens dinâmicas (CA03, CA04, CA07)**
 * **Ação:** Acessar o carrinho via mobile (ex: 360x640) com o aviso "Falta R$ XX,XX para o frete grátis" visível e aplicar um cupom inválido.
 * **Resultado Esperado:** As mensagens não devem quebrar o layout, sobrepor botões ou sumir sob o teclado virtual.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-PLA-01.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -96,7 +96,7 @@ Foco nos fluxos e uso real da aplicação.
 **CT-OPE-01: Reversão de status de frete por ação do usuário (CA06, CA07)**
 * **Ação:** Em um carrinho com R$ 250,00 (frete grátis ativado), remover/alterar itens até o subtotal cair para R$ 190,00.
 * **Resultado Esperado:** Frete grátis revogado, cobrança de R$ 19,90 ativada e exibição dinâmica da mensagem "Falta R$ 10,00 para frete grátis".
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-OPE-01.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -107,7 +107,7 @@ Foco em concorrência, expirações e delays.
 **CT-TIM-01: Validação de ciclo de vida do cupom (CA04)**
 * **Ação:** Inserir um código de cupom configurado para ter expirado.
 * **Resultado Esperado:** Exibir estritamente a mensagem "Cupom expirado." e impedir qualquer alteração de valores.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-TIM-01.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
