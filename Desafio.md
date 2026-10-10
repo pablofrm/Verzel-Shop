@@ -12,7 +12,7 @@ Foco nos componentes físicos e lógicos do sistema.
 **CT-STR-01: Bloqueio de quantidade máxima via Interface (CA10)**
 * **Ação:** No carrinho de compras, tentar adicionar uma 6ª unidade do mesmo produto clicando no botão "+" ou digitando no campo de quantidade.
 * **Resultado Esperado:** A interface deve impedir a ação (botão desabilitado) ou exibir uma mensagem de erro, mantendo a quantidade em 5.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-STR-01.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -20,7 +20,7 @@ Foco nos componentes físicos e lógicos do sistema.
 **CT-STR-02: Bloqueio de quantidade máxima via API (CA10)**
 * **Ação:** Enviar um payload (ex: via Postman) para a rota de atualização do carrinho contendo `quantidade: 6` para um ID de produto.
 * **Resultado Esperado:** A API deve retornar um status code de erro (ex: 400 Bad Request) informando que o limite por produto é 5.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-STR-02.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -31,23 +31,23 @@ Foco no que o sistema faz (regras de negócio, cálculos, estados).
 **CT-FUN-01: Regras combinadas de frete e desconto abaixo do limite (CA01, CA07, CA08, CA09)**
 * **Ação:** Adicionar produtos totalizando R$ 100,00 e aplicar o cupom BEMVINDO10.
 * **Resultado Esperado:** Subtotal de R$ 100,00; desconto de R$ 10,00 (10%); frete de R$ 19,90; total de R$ 109,90. Mensagem: "Falta R$ 100,00 para o frete grátis".
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-FUN-01.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
 
-**CT-FUN-02: Isenção de frete no valor limítrofe exato (CA06, CA08)**
+**CT-FUN-02: Isenção de frete no valor limite exato (CA06, CA08)**
 * **Ação:** Adicionar produtos totalizando exatamente R$ 200,00 e aplicar o cupom BEMVINDO10.
 * **Resultado Esperado:** Frete grátis (avaliação antes do desconto). Valor total a pagar: R$ 180,00.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
-* **Registro de Bug:**
-  * **Descrição:** `[Descreva o bug, se houver]`
+* **Evidência do Teste:** `CT-FUN-02.mp4`
+* **Registro de Bug:** 
+  * **Descrição:** `Desconto do Frete não é aplicado`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
 
 **CT-FUN-03: Substituição de cupons (CA05)**
 * **Ação:** Aplicar um cupom válido. Tentar aplicar um segundo sem remover o primeiro. Remover o primeiro e aplicar o segundo com sucesso.
 * **Resultado Esperado:** Bloqueio da segunda aplicação automática. Permissão apenas após clicar em "remover" o atual.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-FUN-03.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -58,7 +58,7 @@ Foco no processamento de informações (formatação, limites, casas decimais).
 **CT-DAT-01: Sensibilidade e sanitização do código do cupom (CA02)**
 * **Ação:** Inserir o cupom com espaços e variações de caixa (ex: "  bEmViNdO10  ").
 * **Resultado Esperado:** Aplicação de 10% de desconto (como "BEMVINDO10"), higienizando espaços e ignorando case.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-DAT-01.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -66,7 +66,7 @@ Foco no processamento de informações (formatação, limites, casas decimais).
 **CT-DAT-02: Entrada de dados inválidos (CA03)**
 * **Ação:** Digitar um cupom inexistente (ex: CUPOMFALSO99).
 * **Resultado Esperado:** Exibir apenas "Cupom inválido." sem alterar os valores do carrinho.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-DAT-02.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -85,7 +85,7 @@ Foco no ambiente de execução.
 **CT-PLA-01: Exibição responsiva das mensagens dinâmicas (CA03, CA04, CA07)**
 * **Ação:** Acessar o carrinho via mobile (ex: 360x640) com o aviso "Falta R$ XX,XX para o frete grátis" visível e aplicar um cupom inválido.
 * **Resultado Esperado:** As mensagens não devem quebrar o layout, sobrepor botões ou sumir sob o teclado virtual.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-PLA-01.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -96,7 +96,7 @@ Foco nos fluxos e uso real da aplicação.
 **CT-OPE-01: Reversão de status de frete por ação do usuário (CA06, CA07)**
 * **Ação:** Em um carrinho com R$ 250,00 (frete grátis ativado), remover/alterar itens até o subtotal cair para R$ 190,00.
 * **Resultado Esperado:** Frete grátis revogado, cobrança de R$ 19,90 ativada e exibição dinâmica da mensagem "Falta R$ 10,00 para frete grátis".
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-OPE-01.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
@@ -107,7 +107,7 @@ Foco em concorrência, expirações e delays.
 **CT-TIM-01: Validação de ciclo de vida do cupom (CA04)**
 * **Ação:** Inserir um código de cupom configurado para ter expirado.
 * **Resultado Esperado:** Exibir estritamente a mensagem "Cupom expirado." e impedir qualquer alteração de valores.
-* **Evidência do Teste:** `[Link/Nome do arquivo]`
+* **Evidência do Teste:** `CT-TIM-01.mp4`
 * **Registro de Bug:**
   * **Descrição:** `[Descreva o bug, se houver]`
   * **Evidência do Bug:** `[Link/Nome do arquivo]`
